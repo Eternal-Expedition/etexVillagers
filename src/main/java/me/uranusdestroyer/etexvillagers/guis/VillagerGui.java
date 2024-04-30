@@ -29,6 +29,7 @@ public class VillagerGui {
             activeVillagers.remove(ev.getVillager().getUniqueId());
         });
 
+
         int index = 0;
         for (etexVillagerTrade trade : ev.getTradeData()) {
             int sId = trade.getSlotId();
