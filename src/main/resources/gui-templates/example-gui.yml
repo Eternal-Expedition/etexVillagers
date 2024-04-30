@@ -1,0 +1,45 @@
+title: '&aVillager Trade! %xp%'
+rows: 6
+sound-on-open: BLOCK_NOTE_BLOCK_CHIME
+refresh-rate: 1440 # in minutes
+template-version: 1
+
+trade-slots:
+  - 2
+  - 3
+  - 4
+
+levels:
+  - 100
+  - 250
+  - 500
+  - 1000
+
+trade-templates-per-levels:
+  0: "example-trades"
+  1: "example-trades"
+  2: "example-trades"
+  3: "example-trades"
+  4: "example-trades"
+
+
+lore:
+  custom-text-up:
+    - ""
+    - "&f-----------------"
+  input-items: "&fPotřebné itemy: "
+  input-items-style: "  - %has_item% %item_count%&cx &r%item_name%"
+  input-others-style: "  - %has_item% %descripton%"
+  output-items: "&fZískáte tyto itemy: "
+  output-items-style: "  - %has_item% %item_count%&cx &r%item_name%"
+  output-others-style: "  - %has_item% %descripton%"
+  trade-count: "&fKoupeno %trade_count% / %trade_max%"
+  custom-text-down:
+    - "&f-----------------"
+    - ""
+
+
+fill-item:
+  display-item: "vl:glass_pane:1"
+  name: "&ffill"
+  model: 1

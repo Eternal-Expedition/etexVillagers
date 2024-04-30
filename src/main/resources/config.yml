@@ -1,0 +1,92 @@
+# If enabled, all default villagers will be edited by the plugin (server restart needed to change this value)
+disable-vanilla-villagers: true
+
+# No need to edit this if you disable this feature
+vanilla-villagers-config:
+
+  cooldown: 1
+  # Each villager profession can have different trades and gui
+  professions:
+    armorer:
+      enabled: true
+      chance: 15
+      # default gui template that should be used for this profession
+      default-gui-template: "example-gui"
+      # You can rewrite the default option for each type of the villager
+      biomes:
+        plains: "example-gui"
+        savanna: "example-gui"
+
+    butcher:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    cartographer:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    cleric:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    farmer:
+      enabled: true
+      chance: 15
+      default-gui-template: "example-gui"
+
+    fisherman:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    fletcher:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    leatherworker:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    librarian:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    mason:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    nitwit:
+      # You can also disable interaction with a villager profession
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    shepherd:
+      enabled: false
+      chance: 15
+      default-gui-template: "default"
+
+    toolsmith:
+      enabled: true
+      chance: 15
+      default-gui-template: "example-gui"
+
+    weaponsmith:
+      enabled: true
+      chance: 15
+      default-gui-template: "example-gui"
+
+
+
+
+
+
+#!!!!!!!!!! DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU'RE DOING !!!!!!!!!!
+config-version: 1

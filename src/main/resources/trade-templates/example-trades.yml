@@ -1,0 +1,24 @@
+
+trades:
+  kokottrade:
+    input-items:
+      - "vl:emerald:4"
+    output-items:
+      - "vl:diamond:3"
+    trade-display: "vl:diamond:3"
+    trade-display-lore: true
+    max-trades: 5
+    xp: 5
+    chance: 10
+
+  2:
+    input-items:
+      - "vl:diamond:3"
+    output-items:
+      - "vl:dirt:64"
+    trade-display: "vl:diamond:3"
+    trade-display-lore: true
+    max-trades: 5
+    xp: 5
+    chance: 10
+

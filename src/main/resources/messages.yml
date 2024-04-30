@@ -1,0 +1,17 @@
+
+
+villages:
+  prefix: " Villagers> "
+  messages:
+    help-message: "&cYou might want to use /ev help."
+    no-permission: "&cYou don't have permission to execute this."
+    already-trading: "&cNěkdo uz s tim viligram traduje."
+    not-enough-input: "&cNemáš všechny itemy na provedení tradu."
+    max-trades: "&cUz snad stacilo ne ty deb*le"
+    full-inv: "&cUz snad stacilo ne ty deb*le"
+
+
+
+
+#!!!!!!!!!! DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU'RE DOING !!!!!!!!!!
+config-version: 1
