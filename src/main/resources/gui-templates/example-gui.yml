@@ -40,6 +40,6 @@ lore:
 
 
 fill-item:
+  enabled: true
   display-item: "vl:glass_pane:1"
-  name: "&ffill"
-  model: 1
+  name: " "

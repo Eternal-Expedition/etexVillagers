@@ -31,7 +31,7 @@ public class VillagerManager {
 
             activeVillagers.add(ev.getVillager().getUniqueId());
 
-            VillagerGui.VillagerGui(ev).open(player);
+            VillagerGui.VillagerGui(ev, player).open(player);
 
         } else {
             // TODO: add from messages.yml

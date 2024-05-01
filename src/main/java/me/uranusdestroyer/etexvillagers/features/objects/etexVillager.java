@@ -241,10 +241,11 @@ public class etexVillager {
                 int used = trade.getUsed();
 
                 String trade_template = getTradeTemplateString();
-                int maxTrades = ConfigFiles.getTradeTemplate(trade_template).getInt("trades." + tId + ".max-trades");
+                ConfigurationSection section = ConfigFiles.getTradeTemplate(trade_template).getConfigurationSection("trades." + tId);
+                int maxTrades = section.getInt("max-trades");
 
-                if (used <= maxTrades) {
-                    List<String> items = ConfigFiles.getTradeTemplate(trade_template).getStringList("trades." + tId + ".input-items");
+                if (used < maxTrades) {
+                    List<String> items = section.getStringList("input-items");
                     boolean hasAllItems = true;
                     for (String item : items) {
                         if (!etexCoreAPI.getItemManager().hasItem(item, player, false)) {
@@ -258,10 +259,17 @@ public class etexVillager {
                             etexCoreAPI.getItemManager().hasItem(item, player, true);
                         }
 
-                        for (String item : ConfigFiles.getTradeTemplate(trade_template).getStringList("trades." + tId + ".output-items")) {
+                        for (String item : section.getStringList("output-items")) {
                             ItemStack itemStack = etexCoreAPI.getItemManager().getItemStack(item);
                             etexCoreAPI.getItemManager().stashAdd(player, itemStack);
                         }
+
+                        int xp = villager.getPersistentDataContainer().get(XP, PersistentDataType.INTEGER);
+                        xp += section.getInt("xp");
+                        villager.getPersistentDataContainer().set(XP, PersistentDataType.INTEGER, xp);
+
+                        trade.setUsed(used+1);
+                        saveTradeData(tradeData);
 
                         player.sendMessage("Trade successful!");
                     } else {
