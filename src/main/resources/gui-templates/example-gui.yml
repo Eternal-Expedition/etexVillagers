@@ -31,8 +31,8 @@ lore:
   input-items-style: "  - %has_item% %item_count%&cx &r%item_name%"
   input-others-style: "  - %has_item% %descripton%"
   output-items: "&fZískáte tyto itemy: "
-  output-items-style: "  - %has_item% %item_count%&cx &r%item_name%"
-  output-others-style: "  - %has_item% %descripton%"
+  output-items-style: "  - %item_count%&cx &r%item_name%"
+  output-others-style: "  - %descripton%"
   trade-count: "&fKoupeno %trade_count% / %trade_max%"
   custom-text-down:
     - "&f-----------------"

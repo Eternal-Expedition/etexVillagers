@@ -236,6 +236,7 @@ public class etexVillager {
         List<etexVillagerTrade> tradeData = getTradeData();
         for(etexVillagerTrade trade : tradeData) {
             if (trade.getSlotId() == slotId) {
+                System.out.println("starting trade");
                 String tId = trade.getTradeId();
                 int used = trade.getUsed();
 
@@ -253,6 +254,10 @@ public class etexVillager {
                     }
                     if (hasAllItems) {
 
+                        for (String item : items) {
+                            etexCoreAPI.getItemManager().hasItem(item, player, true);
+                        }
+
                         for (String item : ConfigFiles.getTradeTemplate(trade_template).getStringList("trades." + tId + ".output-items")) {
                             ItemStack itemStack = etexCoreAPI.getItemManager().getItemStack(item);
                             etexCoreAPI.getItemManager().stashAdd(player, itemStack);
@@ -267,8 +272,8 @@ public class etexVillager {
                 } else {
                     // TODO: implement messages.yml here
                     player.sendMessage("Moc tradujes");
-                }
-            } break;
+                } return;
+            }
             }
         }
 }

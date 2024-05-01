@@ -10,6 +10,7 @@ import me.uranusdestroyer.etexvillagers.features.objects.etexVillager;
 import me.uranusdestroyer.etexvillagers.features.objects.etexVillagerTrade;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import static me.uranusdestroyer.etexvillagers.etexVillagers.etexCoreAPI;
 import static me.uranusdestroyer.etexvillagers.features.VillagerManager.activeVillagers;
@@ -34,11 +35,12 @@ public class VillagerGui {
         for (etexVillagerTrade trade : ev.getTradeData()) {
             int sId = trade.getSlotId();
             String tId = trade.getTradeId();
-
+            System.out.println(sId + " : " + tId);
             ConfigurationSection section = trade_template.getConfigurationSection("trades." + tId);
 
             GuiItem tradeItem = ItemBuilder.from(etexCoreAPI.getItemManager().getItemStack(section.getString("trade-display"))).asGuiItem(event -> {
                 event.setCancelled(true);
+                ev.executeTrade(sId, (Player) event.getWhoClicked());
             });
 
             gui.updateItem(index, tradeItem);
