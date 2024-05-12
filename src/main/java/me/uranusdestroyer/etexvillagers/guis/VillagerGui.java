@@ -60,7 +60,7 @@ public class VillagerGui {
                 VillagerGui.VillagerGui(ev, p).open(p);
             });
 
-            gui.updateItem(index, tradeItem);
+            gui.updateItem(gui_template.getIntegerList("trade-slots").get(index), tradeItem);
             index += 1;
         }
 
@@ -84,25 +84,44 @@ public class VillagerGui {
 
         for (String inputItemLore : trade.getStringList("input-items")) {
             ItemStack itemStack = etexCoreAPI.getItemManager().getItemStack(inputItemLore);
-            String hasItem = String.valueOf(etexCoreAPI.getItemManager().hasItem(inputItemLore, p, false));
+            boolean hasItem = etexCoreAPI.getItemManager().hasItem(inputItemLore, p, false);
+            String fajvkakrizek;
+            if(hasItem){
+                 fajvkakrizek = "<green>✔<reset>";}
+            else {
+                fajvkakrizek = "<red>❌<reset>";}
 
-            lore.add(gui_template.getString("lore.input-items-style")
-                    .replace("%has_item%", hasItem)
-                    .replace("%item_count%", String.valueOf(itemStack.getAmount()))
-                    .replace("%item_name%", itemStack.getItemMeta().getDisplayName())
+
+            String loreadd = gui_template.getString("lore.input-items-style")
+                    .replace("%has_item%", fajvkakrizek)
+                    .replace("%item_count%", String.valueOf(itemStack.getAmount())
             );
+
+            if (inputItemLore.split(":")[0].equalsIgnoreCase("vl") || inputItemLore.split(":")[0].equalsIgnoreCase("vanilla")) {
+                loreadd = loreadd.replace("%item_name%", inputItemLore.split(":")[1].toLowerCase());
+            } else {
+                loreadd = loreadd.replace("%item_name%", itemStack.getItemMeta().getDisplayName());
+            }
+
+            lore.add(loreadd);
         }
 
         lore.add(gui_template.getString("lore.output-items"));
         for (String inputItemLore : trade.getStringList("output-items")) {
             ItemStack itemStack = etexCoreAPI.getItemManager().getItemStack(inputItemLore);
-            String hasItem = String.valueOf(etexCoreAPI.getItemManager().hasItem(inputItemLore, p, false));
 
-            lore.add(gui_template.getString("lore.input-items-style")
-                    .replace("%has_item%", hasItem)
-                    .replace("%item_count%", String.valueOf(itemStack.getAmount()))
-                    .replace("%item_name%", itemStack.getItemMeta().getDisplayName())
-            );
+            String loreadd = gui_template.getString("lore.output-items-style")
+                    .replace("%item_count%", String.valueOf(itemStack.getAmount())
+                    );
+
+            if (inputItemLore.split(":")[0].equalsIgnoreCase("vl") || inputItemLore.split(":")[0].equalsIgnoreCase("vanilla")) {
+                loreadd = loreadd.replace("%item_name%", inputItemLore.split(":")[1].toLowerCase());
+            } else {
+                loreadd = loreadd.replace("%item_name%", itemStack.getItemMeta().getDisplayName());
+            }
+
+            lore.add(loreadd);
+
         }
 
         lore.add(gui_template.getString("lore.trade-count")
