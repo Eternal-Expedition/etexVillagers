@@ -31,7 +31,7 @@ public class VillagerGui {
 
         Gui gui = Gui.gui()
                 .title(etexCoreAPI.getMessageUtils().componentFromString(gui_template.getString("title").replace("%xp%", String.valueOf(ev.getLevel()))))
-                .rows(6)
+                .rows(gui_template.getInt("rows"))
                 .disableItemTake()
                 .create();
 
