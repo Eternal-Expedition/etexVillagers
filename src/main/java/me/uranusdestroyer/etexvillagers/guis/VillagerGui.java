@@ -33,6 +33,7 @@ public class VillagerGui {
                 .title(etexCoreAPI.getMessageUtils().componentFromString(gui_template.getString("title").replace("%xp%", String.valueOf(ev.getLevel()))))
                 .rows(gui_template.getInt("rows"))
                 .disableItemTake()
+                .disableItemPlace()
                 .create();
 
 
